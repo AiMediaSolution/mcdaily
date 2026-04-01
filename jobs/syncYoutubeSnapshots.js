@@ -12,7 +12,7 @@ async function fetchChannelIdsFromDataApi() {
   if (!xApiKey) {
     throw new Error("Missing X_API_KEY in environment");
   }
-
+  console.log("hehehh ", dataApiUrl);
   const response = await axios.get(dataApiUrl, {
     headers: {
       "x-api-key": xApiKey,
@@ -20,6 +20,7 @@ async function fetchChannelIdsFromDataApi() {
     },
     timeout: 15000,
   });
+  console.log("hehehh 123123", dataApiUrl);
 
   const items = response.data?.data;
   if (!Array.isArray(items)) {
@@ -32,7 +33,6 @@ async function fetchChannelIdsFromDataApi() {
 async function postSnapshotsToApi(payload) {
   const apiUrl = process.env.API_URL;
   const xApiKey = process.env.X_API_KEY;
-
   if (!apiUrl) {
     throw new Error("Missing API_URL in environment");
   }
@@ -40,7 +40,7 @@ async function postSnapshotsToApi(payload) {
   if (!xApiKey) {
     throw new Error("Missing X_API_KEY in environment");
   }
-
+  console.log("thuwcj hien post len");
   const response = await axios.post(apiUrl, payload, {
     headers: {
       "x-api-key": xApiKey,
@@ -48,7 +48,6 @@ async function postSnapshotsToApi(payload) {
     },
     timeout: 15000,
   });
-
   return response.data;
 }
 
