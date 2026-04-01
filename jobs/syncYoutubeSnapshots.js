@@ -86,8 +86,14 @@ async function syncYoutubeSnapshots() {
         2,
       ),
     );
+    // syncYoutubeSnapshots.js
   } catch (error) {
-    console.error("[syncYoutubeSnapshots] Failed:", error.message);
+    console.error("[syncYoutubeSnapshots] Failed:", {
+      message: error.message,
+      code: error.code,
+      url: error.config?.url,
+      step: error.step || "unknown",
+    });
   }
 }
 
